@@ -306,3 +306,35 @@ function updateHealth(amount) {
     location.reload();
   }
 }
+
+const enemy1 = document.getElementById("enemy1");
+const enemy2 = document.getElementById("enemy2");
+
+let enemyDamageCooldown = false;
+
+function checkEnemies() {
+
+  const enemies = [enemy1, enemy2];
+
+  for (const enemy of enemies) {
+
+    const enemyX = enemy.offsetLeft;
+    const enemyY = enemy.offsetTop;
+
+    const distance = Math.sqrt(
+      Math.pow(x - enemyX, 2) +
+      Math.pow(y - enemyY, 2)
+    );
+
+    if (distance < 60 && !enemyDamageCooldown) {
+
+      updateHealth(-10);
+
+      enemyDamageCooldown = true;
+
+      setTimeout(function() {
+        enemyDamageCooldown = false;
+      }, 1000);
+    }
+  }
+}

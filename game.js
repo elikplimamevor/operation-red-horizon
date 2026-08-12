@@ -1,5 +1,6 @@
 const player = document.getElementById("player");
 const buildings = document.querySelectorAll(".building");
+
 const mission = document.getElementById("mission");
 const message = document.getElementById("message");
 const startMission = document.getElementById("startMission");
@@ -7,11 +8,19 @@ const village = document.querySelector(".village");
 
 let x = 380;
 let y = 230;
+
 const speed = 10;
+
 let missionStarted = false;
 let missionComplete = false;
 
+
+// ==============================
+// PLAYER COLLISION
+// ==============================
+
 function isColliding(newX, newY) {
+
   const playerRect = {
     left: newX,
     right: newX + player.offsetWidth,
@@ -20,6 +29,7 @@ function isColliding(newX, newY) {
   };
 
   for (const building of buildings) {
+
     const rect = {
       left: building.offsetLeft,
       right: building.offsetLeft + building.offsetWidth,
@@ -40,7 +50,13 @@ function isColliding(newX, newY) {
   return false;
 }
 
+
+// ==============================
+// MISSION 1
+// ==============================
+
 function checkMissionMarker() {
+
   if (missionStarted) return;
 
   const distance = Math.sqrt(
@@ -53,7 +69,9 @@ function checkMissionMarker() {
   }
 }
 
+
 function checkVillage() {
+
   if (!missionStarted || missionComplete) return;
 
   const villageX = village.offsetLeft;
@@ -65,11 +83,36 @@ function checkVillage() {
   );
 
   if (distance < 80) {
+
     missionComplete = true;
-    alert("MISSION COMPLETE! 🎉\n\nYou reached the village!");
+
+    alert(
+      "MISSION COMPLETE! 🎉\n\n" +
+      "You reached the village!"
+    );
+
     village.style.display = "none";
   }
 }
+
+
+startMission.addEventListener("click", function() {
+
+  missionStarted = true;
+
+  message.style.display = "none";
+  mission.style.display = "none";
+
+  alert(
+    "MISSION STARTED! 🎯\n\n" +
+    "Reach the village."
+  );
+});
+
+
+// ==============================
+// PLAYER MOVEMENT
+// ==============================
 
 document.addEventListener("keydown", function(event) {
 
@@ -78,19 +121,19 @@ document.addEventListener("keydown", function(event) {
 
   const key = event.key.toLowerCase();
 
-  if (key === "w" || event.key === "arrowup") {
+  if (key === "w" || key === "arrowup") {
     newY -= speed;
   }
 
-  if (key === "s" || event.key === "arrowdown") {
+  if (key === "s" || key === "arrowdown") {
     newY += speed;
   }
 
-  if (key === "a" || event.key === "arrowleft") {
+  if (key === "a" || key === "arrowleft") {
     newX -= speed;
   }
 
-  if (key === "d" || event.key === "arrowright") {
+  if (key === "d" || key === "arrowright") {
     newX += speed;
   }
 
@@ -98,6 +141,7 @@ document.addEventListener("keydown", function(event) {
   newY = Math.max(0, Math.min(newY, 465));
 
   if (!isColliding(newX, newY)) {
+
     x = newX;
     y = newY;
 
@@ -107,81 +151,66 @@ document.addEventListener("keydown", function(event) {
 
   checkMissionMarker();
   checkVillage();
+  checkExit();
+  checkIndustrialTarget();
 });
 
-startMission.addEventListener("click", function() {
-  missionStarted = true;
-  message.style.display = "none";
-  mission.style.display = "none";
 
-  alert("MISSION STARTED! 🎯\n\nReach the village.");
-});
+// ==============================
+// BEACH AREA
+// ==============================
 
+const beachArea = document.getElementById("beachArea");
 const exitZone = document.getElementById("exitZone");
 
 function checkExit() {
+
   if (
     x > 720 &&
     y > 170 &&
     y < 330
   ) {
-    alert("AREA UNLOCKED! 🏖️\n\nYou are entering the Beach area.");
-  }
-}
 
-document.addEventListener("keydown", checkExit);
-
-const beachArea = document.getElementById("beachArea");
-
-function checkExit() {
-  if (
-    x > 720 &&
-    y > 170 &&
-    y < 330
-  ) {
     document.getElementById("game").style.display = "none";
+
     beachArea.style.display = "block";
   }
 }
 
-document.addEventListener("keydown", checkExit);
 
-const beachObjective = document.getElementById("beachObjective");
-const beachTarget = document.getElementById("beachTarget");
-const startBeachMission = document.getElementById("startBeachMission");
-const beachPlayer = document.getElementById("beachPlayer");
+// ==============================
+// BEACH MISSION 3
+// ==============================
+
+const beachObjective =
+  document.getElementById("beachObjective");
+
+const beachTarget =
+  document.getElementById("beachTarget");
+
+const startBeachMission =
+  document.getElementById("startBeachMission");
 
 let beachMissionStarted = false;
 
+
 startBeachMission.addEventListener("click", function() {
+
   beachMissionStarted = true;
 
   beachObjective.style.display = "none";
   beachTarget.style.display = "block";
-});
 
-document.addEventListener("keydown", function() {
-
-  if (!beachMissionStarted) return;
-
-  const targetX = beachTarget.offsetLeft;
-  const targetY = beachTarget.offsetTop;
-
-  const playerX = beachPlayer.offsetLeft;
-  const playerY = beachPlayer.offsetTop;
-
-  const distance = Math.sqrt(
-    Math.pow(playerX - targetX, 2) +
-    Math.pow(playerY - targetY, 2)
+  alert(
+    "MISSION 3 STARTED! 🎯\n\n" +
+    "Explore the beach and reach the marker."
   );
-
-  if (distance < 70) {
-    beachTarget.style.display = "none";
-    beachMissionStarted = false;
-
-    alert("MISSION 3 COMPLETE! 🎉\n\nBeach reconnaissance successful!");
-  }
 });
+
+
+// ==============================
+// INDUSTRIAL MISSION 4
+// ==============================
 
 const industrialMission =
   document.getElementById("industrialMission");
@@ -194,16 +223,23 @@ const startIndustrialMission =
 
 let industrialMissionStarted = false;
 
+
 startIndustrialMission.addEventListener("click", function() {
+
   industrialMissionStarted = true;
 
   industrialMission.style.display = "none";
   industrialTarget.style.display = "block";
 
-  alert("MISSION 4 STARTED!\n\nFind the communications terminal.");
+  alert(
+    "MISSION 4 STARTED! 🎯\n\n" +
+    "Find the communications terminal."
+  );
 });
 
+
 function checkIndustrialTarget() {
+
   if (!industrialMissionStarted) return;
 
   const targetX = industrialTarget.offsetLeft;
@@ -215,7 +251,9 @@ function checkIndustrialTarget() {
   );
 
   if (distance < 70) {
+
     industrialMissionStarted = false;
+
     industrialTarget.style.display = "none";
 
     alert(
@@ -225,18 +263,28 @@ function checkIndustrialTarget() {
   }
 }
 
-document.addEventListener("keydown", checkIndustrialTarget);
 
-const commander = document.getElementById("commander");
+// ==============================
+// COMMANDER MAYA
+// ==============================
+
+const commander =
+  document.getElementById("commander");
+
 const commanderMessage =
   document.getElementById("commanderMessage");
+
 const closeCommander =
   document.getElementById("closeCommander");
 
+
 commander.addEventListener("click", function() {
+
   commanderMessage.style.display = "block";
 });
 
+
 closeCommander.addEventListener("click", function() {
+
   commanderMessage.style.display = "none";
 });

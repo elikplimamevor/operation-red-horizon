@@ -182,3 +182,47 @@ document.addEventListener("keydown", function() {
     alert("MISSION 3 COMPLETE! 🎉\n\nBeach reconnaissance successful!");
   }
 });
+
+const industrialMission =
+  document.getElementById("industrialMission");
+
+const industrialTarget =
+  document.getElementById("industrialTarget");
+
+const startIndustrialMission =
+  document.getElementById("startIndustrialMission");
+
+let industrialMissionStarted = false;
+
+startIndustrialMission.addEventListener("click", function() {
+  industrialMissionStarted = true;
+
+  industrialMission.style.display = "none";
+  industrialTarget.style.display = "block";
+
+  alert("MISSION 4 STARTED!\n\nFind the communications terminal.");
+});
+
+function checkIndustrialTarget() {
+  if (!industrialMissionStarted) return;
+
+  const targetX = industrialTarget.offsetLeft;
+  const targetY = industrialTarget.offsetTop;
+
+  const distance = Math.sqrt(
+    Math.pow(x - targetX, 2) +
+    Math.pow(y - targetY, 2)
+  );
+
+  if (distance < 70) {
+    industrialMissionStarted = false;
+    industrialTarget.style.display = "none";
+
+    alert(
+      "MISSION 4 COMPLETE! 🎉\n\n" +
+      "You found the communications terminal."
+    );
+  }
+}
+
+document.addEventListener("keydown", checkIndustrialTarget);

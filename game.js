@@ -116,3 +116,17 @@ startMission.addEventListener("click", function() {
 
   alert("MISSION STARTED! 🎯\n\nReach the village.");
 });
+
+const exitZone = document.getElementById("exitZone");
+
+function checkExit() {
+  if (
+    x > 720 &&
+    y > 170 &&
+    y < 330
+  ) {
+    alert("AREA UNLOCKED! 🏖️\n\nYou are entering the Beach area.");
+  }
+}
+
+document.addEventListener("keydown", checkExit);

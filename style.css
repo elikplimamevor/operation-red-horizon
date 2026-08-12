@@ -117,3 +117,17 @@ body {
   font-weight: bold;
   z-index: 2;
 }
+
+.mountains {
+  position: absolute;
+  right: 10px;
+  top: 190px;
+  width: 150px;
+  height: 80px;
+  background: #4d4d4d;
+  border: 3px solid #111;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+  z-index: 2;
+}

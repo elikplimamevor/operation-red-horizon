@@ -333,3 +333,19 @@ h1 {
   background: rgba(0, 0, 0, 0.75);
   border: 2px solid white;
 }
+
+#hud {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 2px solid white;
+  text-align: left;
+  font-size: 14px;
+  z-index: 50;
+}
+
+#hud div {
+  margin: 3px;
+}

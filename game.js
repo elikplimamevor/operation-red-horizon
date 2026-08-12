@@ -145,3 +145,40 @@ function checkExit() {
 }
 
 document.addEventListener("keydown", checkExit);
+
+const beachObjective = document.getElementById("beachObjective");
+const beachTarget = document.getElementById("beachTarget");
+const startBeachMission = document.getElementById("startBeachMission");
+const beachPlayer = document.getElementById("beachPlayer");
+
+let beachMissionStarted = false;
+
+startBeachMission.addEventListener("click", function() {
+  beachMissionStarted = true;
+
+  beachObjective.style.display = "none";
+  beachTarget.style.display = "block";
+});
+
+document.addEventListener("keydown", function() {
+
+  if (!beachMissionStarted) return;
+
+  const targetX = beachTarget.offsetLeft;
+  const targetY = beachTarget.offsetTop;
+
+  const playerX = beachPlayer.offsetLeft;
+  const playerY = beachPlayer.offsetTop;
+
+  const distance = Math.sqrt(
+    Math.pow(playerX - targetX, 2) +
+    Math.pow(playerY - targetY, 2)
+  );
+
+  if (distance < 70) {
+    beachTarget.style.display = "none";
+    beachMissionStarted = false;
+
+    alert("MISSION 3 COMPLETE! 🎉\n\nBeach reconnaissance successful!");
+  }
+});

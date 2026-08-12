@@ -244,3 +244,41 @@ body {
   font-size: 12px;
   z-index: 5;
 }
+
+#beachArea {
+  display: none;
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  background: #d8c27a;
+  border: 4px solid white;
+}
+
+.beachWater {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background: #4aa3c7;
+  font-size: 35px;
+  padding-top: 30px;
+}
+
+#beachPlayer {
+  position: absolute;
+  left: 380px;
+  top: 200px;
+  font-size: 35px;
+}
+
+.beachMission {
+  position: absolute;
+  left: 300px;
+  top: 100px;
+  padding: 15px;
+  background: rgba(0,0,0,0.75);
+  border: 2px solid white;
+}

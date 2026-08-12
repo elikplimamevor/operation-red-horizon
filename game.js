@@ -200,7 +200,8 @@ startBeachMission.addEventListener("click", function() {
 
   beachObjective.style.display = "none";
   beachTarget.style.display = "block";
-
+setMission("REACH THE VILLAGE");
+  
   alert(
     "MISSION 3 STARTED! 🎯\n\n" +
     "Explore the beach and reach the marker."
@@ -381,3 +382,7 @@ function patrolEnemies() {
 }
 
 setInterval(patrolEnemies, 100);
+
+function setMission(text) {
+  missionStatus.textContent = text;
+}

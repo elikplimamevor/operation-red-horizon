@@ -68,3 +68,27 @@ document.addEventListener("keydown", function(event) {
   player.style.left = x + "px";
   player.style.top = y + "px";
 });
+
+const mission = document.getElementById("mission");
+const message = document.getElementById("message");
+const startMission = document.getElementById("startMission");
+
+function checkMission() {
+  const distance = Math.sqrt(
+    Math.pow(x - 370, 2) +
+    Math.pow(y - 90, 2)
+  );
+
+  if (distance < 50) {
+    message.style.display = "block";
+  }
+}
+
+startMission.addEventListener("click", function() {
+  message.style.display = "none";
+  mission.style.display = "none";
+
+  alert("MISSION STARTED! Reach the village.");
+});
+
+document.addEventListener("keydown", checkMission);

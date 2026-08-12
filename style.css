@@ -63,3 +63,25 @@ body {
   font-size: 35px;
   z-index: 10;
 }
+
+.base {
+  position: absolute;
+  top: 10px;
+  left: 300px;
+  width: 200px;
+  height: 55px;
+  background: #3d4a32;
+  border: 3px solid #111;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.mission {
+  position: absolute;
+  left: 370px;
+  top: 90px;
+  font-size: 35px;
+  z-index: 5;
+}

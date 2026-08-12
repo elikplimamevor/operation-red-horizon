@@ -131,3 +131,39 @@ body {
   font-weight: bold;
   z-index: 2;
 }
+
+.teammate {
+  position: absolute;
+  right: 45px;
+  top: 300px;
+  font-size: 35px;
+  display: none;
+  z-index: 5;
+}
+
+.mission2 {
+  position: absolute;
+  right: 70px;
+  top: 270px;
+  font-size: 35px;
+  display: none;
+  z-index: 5;
+}
+
+#message2 {
+  display: none;
+  position: absolute;
+  left: 150px;
+  top: 150px;
+  width: 500px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 3px solid white;
+  z-index: 20;
+}
+
+#message2 button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

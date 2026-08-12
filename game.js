@@ -92,3 +92,27 @@ startMission.addEventListener("click", function() {
 });
 
 document.addEventListener("keydown", checkMission);
+
+const village = document.querySelector(".village");
+let missionComplete = false;
+
+function checkVillage() {
+  if (missionComplete || village.style.display === "none") return;
+
+  const villageX = village.offsetLeft;
+  const villageY = village.offsetTop;
+
+  const distance = Math.sqrt(
+    Math.pow(x - villageX, 2) +
+    Math.pow(y - villageY, 2)
+  );
+
+  if (distance < 70) {
+    missionComplete = true;
+    alert("MISSION COMPLETE! 🎉\n\nYou reached the village.");
+    
+    village.style.display = "none";
+  }
+}
+
+document.addEventListener("keydown", checkVillage);

@@ -167,3 +167,45 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+
+.downtown {
+  position: absolute;
+  left: 300px;
+  top: 150px;
+  width: 200px;
+  height: 80px;
+  background: #777;
+  border: 3px solid #111;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.beach {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  width: 150px;
+  height: 70px;
+  background: #d8c27a;
+  border: 3px solid #111;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.industrial {
+  position: absolute;
+  left: 300px;
+  bottom: 20px;
+  width: 200px;
+  height: 70px;
+  background: #555;
+  border: 3px solid #111;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+  z-index: 2;
+}

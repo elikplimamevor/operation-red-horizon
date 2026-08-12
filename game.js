@@ -85,7 +85,7 @@ function checkVillage() {
   if (distance < 80) {
 
     missionComplete = true;
-
+setMission("MISSION COMPLETE");
     alert(
       "MISSION COMPLETE! 🎉\n\n" +
       "You reached the village!"

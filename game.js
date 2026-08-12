@@ -338,3 +338,46 @@ function checkEnemies() {
     }
   }
 }
+
+let enemy1Direction = 1;
+let enemy2Direction = -1;
+
+let enemy1X = 100;
+let enemy1Y = 300;
+
+let enemy2X = 600;
+let enemy2Y = 350;
+
+function patrolEnemies() {
+
+  // Enemy 1 patrol
+  enemy1X += enemy1Direction * 2;
+
+  if (enemy1X > 250) {
+    enemy1Direction = -1;
+  }
+
+  if (enemy1X < 80) {
+    enemy1Direction = 1;
+  }
+
+  enemy1.style.left = enemy1X + "px";
+  enemy1.style.top = enemy1Y + "px";
+
+
+  // Enemy 2 patrol
+  enemy2X += enemy2Direction * 2;
+
+  if (enemy2X > 700) {
+    enemy2Direction = -1;
+  }
+
+  if (enemy2X < 500) {
+    enemy2Direction = 1;
+  }
+
+  enemy2.style.left = enemy2X + "px";
+  enemy2.style.top = enemy2Y + "px";
+}
+
+setInterval(patrolEnemies, 100);

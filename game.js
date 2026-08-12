@@ -288,3 +288,21 @@ closeCommander.addEventListener("click", function() {
 
   commanderMessage.style.display = "none";
 });
+
+const healthDisplay = document.getElementById("health");
+const missionStatus = document.getElementById("missionStatus");
+
+let health = 100;
+
+function updateHealth(amount) {
+  health += amount;
+
+  health = Math.max(0, Math.min(100, health));
+
+  healthDisplay.textContent = health;
+
+  if (health <= 0) {
+    alert("MISSION FAILED!\n\nYour health reached zero.");
+    location.reload();
+  }
+}

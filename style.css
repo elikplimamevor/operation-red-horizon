@@ -594,3 +594,30 @@ body {
   font-size: 40px;
   z-index: 10;
 }
+
+#commander {
+  position: absolute;
+  left: 340px;
+  top: 80px;
+  font-size: 35px;
+  z-index: 8;
+  cursor: pointer;
+}
+
+#commanderMessage {
+  display: none;
+  position: absolute;
+  left: 150px;
+  top: 120px;
+  width: 500px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.95);
+  border: 3px solid white;
+  z-index: 30;
+  text-align: center;
+}
+
+#closeCommander {
+  padding: 10px 20px;
+  cursor: pointer;
+}

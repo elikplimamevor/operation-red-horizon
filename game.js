@@ -226,3 +226,17 @@ function checkIndustrialTarget() {
 }
 
 document.addEventListener("keydown", checkIndustrialTarget);
+
+const commander = document.getElementById("commander");
+const commanderMessage =
+  document.getElementById("commanderMessage");
+const closeCommander =
+  document.getElementById("closeCommander");
+
+commander.addEventListener("click", function() {
+  commanderMessage.style.display = "block";
+});
+
+closeCommander.addEventListener("click", function() {
+  commanderMessage.style.display = "none";
+});

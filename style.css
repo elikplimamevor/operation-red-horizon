@@ -209,3 +209,23 @@ body {
   font-weight: bold;
   z-index: 2;
 }
+
+.road {
+  position: absolute;
+  background: #333;
+  z-index: 1;
+}
+
+.road-horizontal {
+  left: 0;
+  top: 42%;
+  width: 100%;
+  height: 16%;
+}
+
+.road-vertical {
+  left: 43%;
+  top: 0;
+  width: 14%;
+  height: 100%;
+}

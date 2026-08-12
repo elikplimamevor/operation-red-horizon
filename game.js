@@ -130,3 +130,18 @@ function checkExit() {
 }
 
 document.addEventListener("keydown", checkExit);
+
+const beachArea = document.getElementById("beachArea");
+
+function checkExit() {
+  if (
+    x > 720 &&
+    y > 170 &&
+    y < 330
+  ) {
+    document.getElementById("game").style.display = "none";
+    beachArea.style.display = "block";
+  }
+}
+
+document.addEventListener("keydown", checkExit);

@@ -103,3 +103,17 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+
+.village {
+  position: absolute;
+  left: 10px;
+  top: 190px;
+  width: 130px;
+  height: 70px;
+  background: #8a7650;
+  border: 3px solid #222;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
